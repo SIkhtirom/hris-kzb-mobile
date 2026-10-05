@@ -57,8 +57,9 @@ Future<String?> pickImageFilePath(BuildContext context) async {
 Future<String?> pickCameraPhotoPath() async {
   final file = await ImagePicker().pickImage(
     source: ImageSource.camera,
-    imageQuality: 85,
-    maxWidth: 1600,
+    imageQuality: 60,
+    maxWidth: 1280,
+    maxHeight: 1280,
   );
   return file?.path;
 }

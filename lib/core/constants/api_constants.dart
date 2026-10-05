@@ -1,7 +1,7 @@
 class ApiConstants {
   ApiConstants._();
 
-  static const String baseUrl = 'http://10.36.128.125:8000/api';
+  static const String baseUrl = 'https://api.hriskzb.biz.id/api';
   static const String loginPath = '/login';
   static const String logoutPath = '/logout';
   static const String mePath = '/me';
@@ -24,7 +24,7 @@ class ApiConstants {
     return Uri(
       scheme: base.scheme,
       host: base.host,
-      port: base.hasPort ? base.port : 80,
+      port: base.hasPort ? base.port : null,
       pathSegments: ['storage', ...parts],
     ).toString();
   }

@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
+
 import '../core/constants/app_strings.dart';
 import '../data/models/izin_record.dart';
 import '../data/repositories/izin_repository.dart';
@@ -85,12 +87,15 @@ class IzinViewModel extends BaseViewModel {
       setError(null);
       return true;
     } on ApiException catch (error) {
+      debugPrint('ERROR SUBMIT IZIN: ${error.message}');
       setError(error.message);
       return false;
     } on TimeoutException {
+      debugPrint('ERROR SUBMIT IZIN: TimeoutException');
       setError(AppStrings.poorConnectionMessage);
       return false;
-    } catch (_) {
+    } catch (error) {
+      debugPrint('ERROR SUBMIT IZIN: $error');
       setError('Gagal mengirim izin. Silakan coba lagi.');
       return false;
     } finally {
